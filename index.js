@@ -99,8 +99,8 @@ function roleView() {
 
 function addEmployee() {
 
-  // connection.query("SELECT * from role", function (err, res) {
-  //   if (err) throw err;
+  connection.query("SELECT title, id FROM role", function (err, res) {
+    if (err) throw err;
   
   inquirer
     .prompt([
@@ -116,16 +116,14 @@ function addEmployee() {
       },
       {
         name: "roleChoice",
-        type: "input",
-        // type: "rawlist",
-        // choices: function() {
-        //   var choiceArray = [];
-        //   for (var i = 0; i < res.length; i++) {
-        //     choiceArray.push(res[i].title)
-        //   }
-        //   return choiceArray;
-        // },
-        message: "What is the employee's role ID?" 
+        type: "list",
+        message: "What is the employee's role?",
+        choices: res.map(role => {
+        return {
+          name: role.title, 
+          value: role.id
+        }
+       })
       },
       {
         name: "managerChoice",
@@ -148,22 +146,20 @@ function addEmployee() {
         },
         function(err) {
           if (err) throw err;
+          console.log("\n");
           console.log("The new employee is now in the database.");
+          console.log("\n");
           init();
         }
       );
-    });
-    
-    // .then(function(answer) {
-    //   connection.query("INSERT INTO employee(first_name, last_name, role_id, manager_id) VALUES(?, ?, ?, ?)", [answer.first_name, answer.last_name, answer.roleChoice, answer.managerChoice], function(err) {
-    //     if (err) throw err;
-    //     console.log("New employee added");
-    //     init();
-    //   })
-    // }) 
+    })
+  });
 }
 
 function addRole() {
+  connection.query("SELECT name, id FROM department", function(err, res) {
+    if (err) throw err;
+
   inquirer
   .prompt([
     {
@@ -178,9 +174,15 @@ function addRole() {
     },
     {
       name: "departmentChoice",
-      type: "input",
-      message: "In which department does this role belong?",  
-    } 
+      type: "list",
+      message: "In which department does this role belong?",
+      choices: res.map(department => {
+        return {
+          name: department.name, 
+          value: department.id
+        }
+      })
+    }
   ])
   .then(function(answer) {
     connection.query(
@@ -192,11 +194,14 @@ function addRole() {
       },
       function(err) {
         if (err) throw err;
+        console.log("\n");
         console.log("The new role is now in the database.");
+        console.log("\n");
         init();
       }
     );
   });
+ })
 }
 
 function addDepartment() {
@@ -216,7 +221,9 @@ function addDepartment() {
       },
       function(err) {
         if (err) throw err;
+        console.log("\n");
         console.log("The new department is now in the database.");
+        console.log("\n");
         init();
       }
     );

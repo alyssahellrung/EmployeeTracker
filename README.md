@@ -35,8 +35,8 @@ console.table
 Install dependencies using npm install.  
 Go to .env.sample.txt to see where to enter your MySQL password. Create your own .env file with your password in it just as it is in the sample.    
 
-Run the program by typing "node index.js" in the command line.    
-![image]()   
+Run the program by typing "node index.js" in the command line.      
+![image](Assets/Menu.png)   
 
 A list of options will appear. Navigate to an option using the up and down arrow keys and press enter to select that option. The options are:       
   --View all employees   
@@ -46,21 +46,25 @@ A list of options will appear. Navigate to an option using the up and down arrow
   --Add a new role  
   --Add a new department  
   --Update employee role  
-  --Exit  
-![image](./Develop/assets/Images/managerquestions.png)  
+  --Exit   
 
-Upon making a selection, the user will either be presented with the information they seek (for example, selecting "View all departments" will result in the user being presented with a list of all departments) or they will be prompted to answer a few questions in order to add or update something in the database.       
+Upon making a selection, the user will either be presented with the information they seek (for example, selecting "View all employees" will result in the user being presented with a table that includes all employees and their roles, salaries, departments, and managers) or they will be prompted to answer a few questions in order to add or update something in the database.    
 
-![image](./Develop/assets/Images/allquestions.png)  
+View all employees:
+![image](Assets/viewAllEmp.png)   
+
+Add a new department:  
+![image](Assets/addDept.png)    
+
 After viewing information or completing an adjustment to the database, the user will be able to choose another option from the initial menu. They will continue to be taken back that menu every time they complete a task until they select "exit", at which point the program will end.
 
 ## Demonstration Video
-(https://drive.google)  
+(https://drive.google.com/file/d/1mbAAx1HZkXu1bNlXz54mVaGqHs7MYukf/view)  
 
 ## How I Made This  
 I was given a photo that visually represented the schema I was to write and a gif demonstration of the application's functionality, from there I built everything from scratch.
 
-The first thing I did was create an package.json and install my dependencies. Then I created all of the files I would need, including a .env and .gitignore, which we just learned how to use.
+The first thing I did was create a package.json and install my dependencies. Then I created all of the files I would need, including a .env and .gitignore, which we just learned how to use.
 
 From there I created a schema.sql based on the given diagram and copied that into MySQL Workbench. I also created a seed file and added some department, role, and employee data to my tables in both the file and on mySQL Workbench.  
 
@@ -73,7 +77,7 @@ The connection ends when the user chooses "exit" from the list of options.
 
 ## Future Development Ideas
 This project was very simple in some ways and completely beyond me in others. I have several things I still want to do:
-1) Instead of having to add an id number for managers or departments when adding employees or roles, I want to give the user a list to choose from.
+1) Instead of having to add an id number for managers when adding an employee, I want to give the user a list of manager names to choose from.
 2) I need to add the option to delete things from the database.
 3) I would like to be able to display information in ways I did not manage to yet--for example, display all of the employees in a chosen department.
 4) I want to turn this whole thing into a team tracker for sports teams. 
