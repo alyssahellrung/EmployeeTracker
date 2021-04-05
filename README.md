@@ -1,4 +1,4 @@
-# EMPLOYEE TRACKER--Homework 12
+# EMPLOYEE TRACKER
 
 ## Description  
 This is a command-line application that allows business owners to view and manage the departments, roles, and employees in their companies so they can better organize and plan their business.
@@ -61,14 +61,12 @@ After viewing information or completing an adjustment to the database, the user 
 ## Demonstration Video
 (https://drive.google.com/file/d/1mbAAx1HZkXu1bNlXz54mVaGqHs7MYukf/view)  
 
-## How I Made This  
-I was given a photo that visually represented the schema I was to write and a gif demonstration of the application's functionality, from there I built everything from scratch.
+## How I Made This    
+The first thing I did was create a package.json and install my dependencies. Then I created all of the files I would need.
 
-The first thing I did was create a package.json and install my dependencies. Then I created all of the files I would need, including a .env and .gitignore, which we just learned how to use.
+From there I created a schema.sql and copied that into MySQL Workbench. I also created a seed file and added some department, role, and employee data to my tables in both the file and on mySQL Workbench.  
 
-From there I created a schema.sql based on the given diagram and copied that into MySQL Workbench. I also created a seed file and added some department, role, and employee data to my tables in both the file and on mySQL Workbench.  
-
-From there I created my index.js file, which begins with a connection to MySQL. After that I used inquirer to establish the options the user would see when they ran the program, then a switch statement that handles the user's choice(s). After the switch statement is a long list of functions that make it possible to display from, update and add to database information.  
+From there I created my index.js file, which begins with a connection to MySQL. After that I used Inquirer to establish the options the user would see when they ran the program, then a switch statement that handles the user's choice(s). After the switch statement is a long list of functions that make it possible to display from, update, and add to database information.  
 
 The connection ends when the user chooses "exit" from the list of options. 
 
@@ -78,6 +76,6 @@ The connection ends when the user chooses "exit" from the list of options.
 ## Future Development Ideas
 This project was very simple in some ways and completely beyond me in others. I have several things I still want to do:
 1) Instead of having to add an id number for managers when adding an employee, I want to give the user a list of manager names to choose from.
-2) I need to add the option to delete things from the database.
+2) I want to add the option to delete things from the database.
 3) I would like to be able to display information in ways I did not manage to yet--for example, display all of the employees in a chosen department.
 4) I want to turn this whole thing into a team tracker for sports teams. 

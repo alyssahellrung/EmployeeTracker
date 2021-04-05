@@ -128,11 +128,6 @@ function addEmployee() {
       {
         name: "managerChoice",
         type: "input",
-        // type: "rawlist",
-        // choices: function() {
-          // var choiceArray = [];
-          // for (var i = 0; i < res.length; i++) {
-          //   choiceArray.push(res[i].
         message: "What is the employee's manager ID?"
       }
     ]).then(function(answer) {
